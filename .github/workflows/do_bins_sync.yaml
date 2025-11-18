@@ -29,10 +29,15 @@ jobs:
           curl -o docker_desktop_installer_mac_arm64.dmg     "https://desktop.docker.com/mac/main/arm64/Docker.dmg"
           curl -o docker_desktop_installer_debian_amd64.deb  "https://desktop.docker.com/linux/main/amd64/docker-desktop-amd64.deb"
           curl -o docker_desktop_installer_fedora_amd64.rpm  "https://desktop.docker.com/linux/main/amd64/docker-desktop-amd64.rpm"
-      
+
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
+          overwrite_files: false  # 不覆盖已有版本(避免重复发布同一版本)
+          name: "Docker Desktop Binaries"
+          body: |
+            自动同步自 Docker Desktop 官网的二进制程序
+          tag_name: "v$(date +%Y.%m.%d)"  # 用v2025.11.19
           files: |
             linux.sh
             docker_desktop_installer_windows_amd64.exe
@@ -41,4 +46,3 @@ jobs:
             docker_desktop_installer_mac_arm64.dmg
             docker_desktop_installer_fedora_amd64.deb
             docker_desktop_installer_fedora_amd64.rpm
-          tag_name: "docker-desktop-sync-on-$(date '+%F-%T')"
