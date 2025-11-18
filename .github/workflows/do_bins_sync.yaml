@@ -1,7 +1,7 @@
 name: Docker-Destkop-Installer
 
 on:
-  #workflow_dispatch:
+  workflow_dispatch:
   #  inputs:
   #    binvern:
   #      description: '指定Zig版本号(如0.15.2,不填则使用最新版本)'
