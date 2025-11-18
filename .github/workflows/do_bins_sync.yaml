@@ -41,4 +41,4 @@ jobs:
             docker_desktop_installer_mac_arm64.dmg
             docker_desktop_installer_fedora_amd64.deb
             docker_desktop_installer_fedora_amd64.rpm
-          tag_name: docker desktop sync on $(date '+%F-%T')
+          tag_name: "docker-desktop-sync-on-$(date '+%F-%T')"
